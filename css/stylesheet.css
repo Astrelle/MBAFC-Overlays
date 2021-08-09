@@ -1,0 +1,203 @@
+@font-face {
+    font-family: 'SansationRegular';
+    src: url('Sansation_Regular-webfont.eot');
+    src: url('Sansation_Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Sansation_Regular-webfont.woff') format('woff'),
+         url('Sansation_Regular-webfont.ttf') format('truetype'),
+         url('Sansation_Regular-webfont.svg#SansationRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SansationBold';
+    src: url('Sansation_Bold-webfont.eot');
+    src: url('Sansation_Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Sansation_Bold-webfont.woff') format('woff'),
+         url('Sansation_Bold-webfont.ttf') format('truetype'),
+         url('Sansation_Bold-webfont.svg#SansationBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'StencilSTD';
+    src: url('3_Stencil Std.ttf') format('truetype'),
+    	 url('3_Stencil Std.woff') format('woff'),
+    	 url('3_Stencil Std.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'StencilSTD';
+	color:#FFFFFF;
+	overflow: hidden;
+}
+
+
+#board {
+	position:relative;
+	top:0px;
+	margin-left: auto;
+	margin-right: auto;
+	width:1920px;
+	height:100px;
+	background-image:url('../images/scoreBoard1.png');
+}
+
+#boardSecond {
+	position:relative;
+	margin-left: auto;
+	margin-right: auto;
+	width:1920px;
+	height:700px;
+	background-image:url('../images/scoreBoard2.png');
+}
+
+#cBoard {
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:1280px;
+	height:720px;
+	background-image:url('../images/commentatorBoard.png');
+}
+
+#pBoard {
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:1280px;
+	height:720px;
+	background-image:url('../images/playerBoard.png');
+}
+
+#bGamePlayer{
+	position: absolute;
+	bottom:85px;
+	left:65px;
+	font-size:28px;
+}
+
+#bRound{
+	position: absolute;
+	width:100%;
+	bottom:3px;
+	text-align: center;
+}
+
+#bRoundPlayer{
+	position: absolute;
+	left:65px;
+	bottom:55px;
+	font-size:28px;
+	text-align: center;
+}
+
+#pName1 {
+	position:absolute;
+	left:205px;
+	top:5px;
+	width:330px;
+	font-size:20px;
+}
+#pName2 {
+	position:absolute;
+	left:745px;
+	top:5px;
+	width:330px;
+	font-size:20px;
+	text-align:right;
+}
+#pScore1 {
+	position:absolute;
+	left:146px;
+	top:5px;
+	width:47px;
+	font-size:20px;
+	text-align:center;
+}
+#pScore2 {
+	position:absolute;
+	left:1086px;
+	top:5px;
+	width:47px;
+	font-size:20px;
+	text-align:center;
+}
+
+#cTitle1 {
+	position:absolute;
+	left:105px;
+	bottom:65px;
+	width:330px;
+	font-size:32px;
+}
+#cTitle2 {
+	position:absolute;
+	left:845px;
+	bottom:65px;
+	width:330px;
+	font-size:32px;
+	text-align:right;
+}
+#cTwitter1 {
+	position:absolute;
+	left:105px;
+	bottom:6px;
+	width:330px;
+	font-size:20px;
+}
+#cTwitter2 {
+	position:absolute;
+	left:845px;
+	bottom:6px;
+	width:330px;
+	font-size:20px;
+	text-align:right;
+}
+#eName {
+	position:absolute;
+	width:100%;
+	left:105px;
+	bottom:140px;
+	font-size:20px;
+}
+#eNamePlayer {
+	position:absolute;
+	width:100%;
+	left:105px;
+	bottom:152px;
+	font-size:12px;
+}
+#eLoc {
+	position:absolute;
+	left:850px;
+	bottom:140px;
+	width:330px;
+	font-size:20px;
+	text-align:right;
+}
+#eLocPlayer {
+	position:absolute;
+	left:105px;
+	bottom:138px;
+	width:330px;
+	font-size:12px;
+}
+
+
+#mText3 {
+	color: #333333;
+	position:absolute;
+	left:560px;
+	top:1px;
+	width:160px;
+	font-size:11px;
+	font-family: 'SansationBold';
+	text-align:center;
+}

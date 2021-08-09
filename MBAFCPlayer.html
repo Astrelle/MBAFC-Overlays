@@ -1,0 +1,280 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8">
+	<script src="js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jstween-1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		var timestampOld;
+		var timestamp;
+		var bGame;
+		var bRound;
+		var eName;
+		var eLoc;
+
+		var xmlDoc;
+		var xhr = new XMLHttpRequest();
+
+		var animating = false;
+		var doUpdate = false;
+
+		function init(){
+
+			xhr.overrideMimeType('text/xml');
+
+			var timeout = this.window.setInterval(function() {
+				pollHandler();
+			}, 200);
+
+			$('bGame').html('');
+			$('bRound').html('');
+			$('eName').html('');
+			$('eLoc').html('');
+			$('#pBoard').tween({
+				left:{
+					start: '-650',
+					stop: '0',
+					units: 'px',
+					time: 0,
+					duration: 0.8,
+					effect:'easeOut'
+				}
+			});
+
+			$.play();
+		}
+
+		function pollHandler(){
+			loadData();
+			if (timestamp != timestampOld){
+				doUpdate = true;
+			}
+			if (!animating && doUpdate) {
+				updateBoard();
+			}
+		}
+
+		function loadData() {
+			xhr.open('GET', 'streamcontrol.xml');
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				xmlDoc = xhr.responseXML;
+
+				bGame = getValueFromTag(xmlDoc,'bGame');
+				bRound = getValueFromTag(xmlDoc,'bRound');
+				eName = getValueFromTag(xmlDoc,'eName');
+				eLoc = getValueFromTag(xmlDoc,'eLoc');
+				timestampOld = timestamp;
+				timestamp = getValueFromTag(xmlDoc,'timestamp');
+			}
+		}
+
+		function updateBoard(){
+			if($('#bGamePlayer').html() != bGame) {
+				animating = true;
+				$('#bGamePlayer').tween({
+					left:{
+						start: 65,
+						stop: 0,
+						units: 'px',
+						time: 0,
+						duration: 0.5,
+						effect:'easeIn'
+					},
+					opacity: {
+						start: 100,
+						stop: 0,
+						time: 0,
+						duration: 0.5,
+						effect: 'easeIn'
+					},
+					onStop: function(){
+						$('#bGamePlayer').html(bGame);
+					}
+				});
+
+				$('#bGamePlayer').tween({
+					left:{
+						start: 0,
+						stop: 65,
+						units: 'px',
+						time: 0.5,
+						duration: 0.5,
+						effect:'easeOut'
+					},
+					opacity: {
+						start: 0,
+						stop: 100,
+						time: 0.5,
+						duration: 0.5,
+						effect: 'easeOut'
+					},
+					onStop: function(){
+						animating = false;
+					}
+				});
+			}
+
+			if($('#bRoundPlayer').html() != bRound) {
+				animating = true;
+				$('#bRoundPlayer').tween({
+					left:{
+						start: 65,
+						stop: 0,
+						units: 'px',
+						time: 0,
+						duration: 0.5,
+						effect:'easeIn'
+					},
+					opacity: {
+						start: 100,
+						stop: 0,
+						time: 0,
+						duration: 0.5,
+						effect: 'easeIn'
+					},
+					onStop: function(){
+						$('#bRoundPlayer').html(bRound);
+					}
+				});
+
+				$('#bRoundPlayer').tween({
+					left:{
+						start: 0,
+						stop: 65,
+						units: 'px',
+						time: 0.5,
+						duration: 0.5,
+						effect:'easeOut'
+					},
+					opacity: {
+						start: 0,
+						stop: 100,
+						time: 0.5,
+						duration: 0.5,
+						effect: 'easeOut'
+					},
+					onStop: function(){
+						animating = false;
+					}
+				});
+			}
+
+			if($('#eNamePlayer').html() != eName) {
+				animating = true;
+				$('#eNamePlayer').tween({
+					left:{
+						start: 65,
+						stop: 0,
+						units: 'px',
+						time: 0,
+						duration: 0.5,
+						effect:'easeIn'
+					},
+					opacity: {
+						start: 100,
+						stop: 0,
+						time: 0,
+						duration: 0.5,
+						effect: 'easeIn'
+					},
+					onStop: function(){
+						$('#eNamePlayer').html(eName);
+					}
+				});
+
+				$('#eNamePlayer').tween({
+					left:{
+						start: 0,
+						stop: 65,
+						units: 'px',
+						time: 0.5,
+						duration: 0.5,
+						effect:'easeOut'
+					},
+					opacity: {
+						start: 0,
+						stop: 100,
+						time: 0.5,
+						duration: 0.5,
+						effect: 'easeOut'
+					},
+					onStop: function(){
+						animating = false;
+					}
+				});
+			}
+
+			if($('#eLocPlayer').html() != eLoc) {
+				animating = true;
+				$('#eLocPlayer').tween({
+					left:{
+						start: 65,
+						stop: 0,
+						units: 'px',
+						time: 0,
+						duration: 0.5,
+						effect:'easeIn'
+					},
+					opacity: {
+						start: 100,
+						stop: 0,
+						time: 0,
+						duration: 0.5,
+						effect: 'easeIn'
+					},
+					onStop: function(){
+						$('#eLocPlayer').html(eLoc);
+					}
+				});
+
+				$('#eLocPlayer').tween({
+					left:{
+						start: 0,
+						stop: 65,
+						units: 'px',
+						time: 0.5,
+						duration: 0.5,
+						effect:'easeOut'
+					},
+					opacity: {
+						start: 0,
+						stop: 100,
+						time: 0.5,
+						duration: 0.5,
+						effect: 'easeOut'
+					},
+					onStop: function(){
+						animating = false;
+					}
+				});
+			}
+
+			$.play();
+
+			doUpdate = false;
+		}
+
+		function getValueFromTag (xmlDoc,tag) {
+			if (xmlDoc.getElementsByTagName(tag).length != 0) {
+				if(xmlDoc.getElementsByTagName(tag)[0].childNodes.length == 0) {
+					return '';
+				}else{
+					return xmlDoc.getElementsByTagName(tag)[0].childNodes[0].nodeValue;
+				}
+			}else{
+				return '';
+			}
+		}
+	</script>
+
+</head>
+<body onLoad="init()">
+	<div id="pBoard">
+		<div id="bGamePlayer"></div>
+		<div id="bRoundPlayer"></div>
+		<div id="eNamePlayer"></div>
+		<div id="eLocPlayer"></div>
+	</div>
+</body>
+</html>
